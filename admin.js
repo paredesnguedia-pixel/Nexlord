@@ -22,6 +22,7 @@ async function enter(u) {
     if (error || !data || !["admin", "super_admin"].includes(data.role)) {
       await db.auth.signOut();
       msg("loginMsg", "Accès refusé : compte non administrateur.");
+      alert("Accès refusé : compte non administrateur.");
       return;
     }
 
@@ -33,17 +34,21 @@ async function enter(u) {
     await load();
   } catch (err) {
     msg("loginMsg", "Erreur vérification admin : " + err.message);
+    alert("Erreur vérification admin : " + err.message);
   }
 }
 
-$("loginForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  e.stopPropagation();
-
+$("loginBtn").addEventListener("click", async function () {
   msg("loginMsg", "Connexion en cours…");
 
   const email = $("email").value.trim();
   const password = $("password").value;
+
+  if (!email || !password) {
+    msg("loginMsg", "Veuillez remplir tous les champs.");
+    alert("Veuillez remplir tous les champs.");
+    return;
+  }
 
   try {
     const { data, error } = await db.auth.signInWithPassword({
@@ -53,12 +58,14 @@ $("loginForm").addEventListener("submit", async function (e) {
 
     if (error) {
       msg("loginMsg", "Erreur : " + error.message);
+      alert("Erreur : " + error.message);
       return;
     }
 
     await enter(data.user);
   } catch (err) {
     msg("loginMsg", "Erreur technique : " + err.message);
+    alert("Erreur technique : " + err.message);
   }
 });
 
@@ -134,7 +141,7 @@ $("productForm").addEventListener("submit", async function (e) {
     const row = {
       name: $("name").value.trim(),
       description: $("description").value.trim(),
-      price_xaf: $("price").value ? Number($("price").value) : null,
+      price_xaf: \( ("price").value ? Number( \)("price").value) : null,
       category: $("category").value.trim() || null,
       image_url: image_url,
       published: $("published").checked,
