@@ -19,7 +19,6 @@ button.danger{background:#b93e50}
 .password-wrap input{padding-right:48px}
 .toggle-eye{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:#9bc4ff;font-size:20px;cursor:pointer;padding:4px;line-height:1}
 </style>
-<script defer src="admin.js"></script>
 </head>
 <body>
 <main>
@@ -28,18 +27,18 @@ button.danger{background:#b93e50}
 
 <section id="login" class="panel">
   <h2>Connexion administrateur</h2>
-  <form id="loginForm">
+  <div>
     <label>E-mail</label>
-    <input id="email" type="email" required autocomplete="username">
-
+    <input id="email" type="email" required>
+    
     <label>Mot de passe</label>
     <div class="password-wrap">
-      <input id="password" type="password" required autocomplete="current-password">
-      <button type="button" class="toggle-eye" id="togglePassword" title="Afficher / masquer">👁</button>
+      <input id="password" type="password" required>
+      <button type="button" class="toggle-eye" id="togglePassword">👁</button>
     </div>
-
-    <button type="submit">Se connecter</button>
-  </form>
+    
+    <button type="button" id="loginBtn">Se connecter</button>
+  </div>
   <p id="loginMsg" style="margin-top:12px;color:#f87171"></p>
 </section>
 
@@ -84,6 +83,7 @@ button.danger{background:#b93e50}
 </div>
 </main>
 
+<script src="admin.js"></script>
 <script>
 document.getElementById("togglePassword").addEventListener("click", function () {
   var input = document.getElementById("password");
