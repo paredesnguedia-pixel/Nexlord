@@ -217,7 +217,9 @@ button.active {
 }
 
 .photo {
-  height: 175px;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
   background: linear-gradient(135deg, #eaf0fb, #f7f9fc);
   display: grid;
   place-items: center;
@@ -226,9 +228,12 @@ button.active {
 }
 
 .photo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .info {
@@ -352,9 +357,6 @@ footer p, footer small {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
-  .photo {
-    height: 130px;
-  }
   .info {
     padding: 12px;
   }
@@ -387,8 +389,5 @@ footer p, footer small {
 @media (max-width: 380px) {
   .grid {
     grid-template-columns: 1fr;
-  }
-  .photo {
-    height: 180px;
   }
 }
