@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#081020">
+<title>NEXLORD Yaoundé e-shop</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="livraison.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#">
+    <span class="mark">N</span>
+    <span>NEXLORD<small>YAOUNDÉ</small></span>
+  </a>
+  <input id="searchInput" placeholder="Rechercher un produit…">
+  <button id="cartBtn" aria-label="Ouvrir le panier">🛒 <span id="cartCount">0</span></button>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">MODE • TECH • QUOTIDIEN</p>
+      <h1>Tout pour vous,<br><em>livré à Yaoundé.</em></h1>
+      <p class="intro">Vêtements, chaussures, téléphones et accessoires : commandez en quelques clics sur WhatsApp.</p>
+      <a class="button" href="#products">Découvrir la boutique →</a>
+      <p class="trust">✦ Une expérience simple, rapide et humaine</p>
+    </div>
+    <div class="art">
+      <div class="orbit"></div>
+      <div class="core">N</div>
+      <small>NEXLORD / YAOUNDÉ</small>
+    </div>
+  </section>
+
+  <section class="catalog" id="products">
+    <p class="eyebrow">LA SÉLECTION NEXLORD</p>
+    <h2>Découvrez la sélection.</h2>
+    <p class="muted">Des produits choisis pour vous, livrés dans toute la ville.</p>
+    <nav id="categoryFilters">
+      <button class="active" data-category="Tous">Tout voir</button>
+      <button data-category="Vêtements">Vêtements</button>
+      <button data-category="Chaussures">Chaussures</button>
+      <button data-category="Ustensiles">Ustensiles</button>
+      <button data-category="Téléphones">Téléphones</button>
+      <button data-category="Informatique">Informatique</button>
+      <button data-category="Accessoires">Accessoires</button>
+      <button data-category="Autres">Autres</button>
+    </nav>
+    <div class="grid" id="productGrid">Chargement…</div>
+  </section>
+
+  <section class="delivery-section" aria-labelledby="delivery-title">
+    <div class="delivery-heading">
+      <p class="eyebrow">SIMPLE • RAPIDE • PRATIQUE</p>
+      <h2 id="delivery-title">Livraison à Yaoundé</h2>
+      <p>Choisissez le mode de livraison qui vous convient.</p>
+    </div>
+
+    <div class="delivery-options">
+      <article class="delivery-card">
+        <div class="delivery-icon" aria-hidden="true">🚚</div>
+        <p class="delivery-label">LIVRAISON STANDARD</p>
+        <p class="delivery-price">1 000 <span>FCFA</span></p>
+        <span class="delivery-time">24 à 48 heures</span>
+        <p class="delivery-description">Une option économique pour recevoir votre commande tranquillement.</p>
+      </article>
+
+      <article class="delivery-card delivery-card-express">
+        <div class="delivery-icon" aria-hidden="true">⚡</div>
+        <p class="delivery-label">LIVRAISON EXPRESS</p>
+        <p class="delivery-price">2 000 <span>FCFA</span></p>
+        <span class="delivery-time">Quelques heures*</span>
+        <p class="delivery-description">Pour recevoir votre commande plus rapidement, selon la disponibilité.</p>
+      </article>
+    </div>
+
+    <div class="delivery-details">
+      <div class="payment-title">Moyens de paiement</div>
+      <div class="payment-options">
+        <span>📱 Mobile Money <b>recommandé</b></span>
+        <span>💵 Paiement à la livraison</span>
+      </div>
+      <p class="delivery-note">* Délais indicatifs après confirmation de la commande et paiement des frais. Les tarifs peuvent varier selon le quartier, la distance et le produit. Le montant exact est confirmé avant validation de la commande.</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div>
+      <p class="eyebrow">BESOIN D'UN CONSEIL ?</p>
+      <h2>Une question ? Écrivez-nous.</h2>
+      <p>Nous répondons sur WhatsApp 24h/24, 7j/7.</p>
+    </div>
+    <a class="button light" href="https://wa.me/237657420284" target="_blank" rel="noopener">Écrire sur WhatsApp ↗</a>
+  </section>
+</main>
+
+<footer>
+  <b>NEXLORD · YAOUNDÉ</b>
+  <p>Votre boutique en ligne à Yaoundé.</p>
+  <small>© <span id="year"></span> NEXLORD. Tous droits réservés.</small>
+</footer>
+<div id="viewer" class="ov"></div>
+<div id="cart" class="ov"><div class="vbox" id="cartBox"></div></div>
+<div id="toast" class="toast" role="status"></div>
+</body>
+</html>
